@@ -553,10 +553,11 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   // Reducing the pizza counts as suggested in some of the project notes as 200 pizzas are not on the screen all the time
-  // Trying to find a way to dynamically figure out the pizza counts based on clientHeight
+  // Trying to find a way to dynamically figure out the pizza counts that need to be displayed proportionately based on clientHeight
   var windowHeight = document.documentElement.clientHeight;
   //console.log("Height is ", windowHeight);
-  var multiplier = (Math.ceil(windowHeight / 256 ));
+  // Calculating a multiplier based on windowHeight and that are a count of s px apart.
+  var multiplier = (Math.ceil(windowHeight / s ));
   //console.log("Multiplier is ", multiplier);
   var pizzaCount = multiplier * cols;
 

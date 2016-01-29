@@ -1,3 +1,25 @@
+## Umang's optimizations
+All my updates for both parts are in the dist folder. I followed the instructions in the original README to setup a webserver to help measure the performance with pagespeeds.
+
+### Index.html changes
+1. Used the Udacity discussion forum suggested Addy Osmani's critical plugin to inline the css
+2. Created a new pizzeria_small.jpg and referenced it in the pizza.html page
+3. Changed analytics.js to be async
+4. Moved the web fonts to the end 
+5. Minified the html and style.css
+6. Added media="print" to the print.css style reference
+
+### Pizza.html changes
+#### main.js updates
+1. Removed the determineDX function as suggested by Cameron in the videos and added return values to the changeSliderLabel function. The return values are now assigned to a new variable which is then used to set the new width.
+2. Replaced the "document.querySelectorAll" selector with a better approach based on suggestions provided in the <a href="https://discussions.udacity.com/t/project-4-how-do-i-optimize-the-background-pizzas-for-loop/36302"> forums by the mentor mcs </a>
+3. In the updatePositions functoin, created an array called phaseArray for the 5 constand phase values and moved it outside the for loop
+4. Reduced the pizza count from 200 to based on clientHeight (trying to make the pizza display count dynamic) 
+
+#### style.css changes
+1. Added will-change: transform; to the .mover class so that on scrolling the pizzas are not green
+
+
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
