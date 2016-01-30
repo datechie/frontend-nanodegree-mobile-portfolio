@@ -15,6 +15,7 @@ All my updates for both parts are in the dist folder. I followed the instruction
 2. Replaced the "document.querySelectorAll" selector with a better approach based on suggestions provided in the <a href="https://discussions.udacity.com/t/project-4-how-do-i-optimize-the-background-pizzas-for-loop/36302"> forums by the mentor mcs </a>
 3. In the updatePositions function, created an array called phaseArray for the 5 constand phase values and moved it outside the for loop
 4. Reduced the pizza count from 200 to based on clientHeight (trying to make the pizza display count dynamic)
+
 #### Based on Review Feedback, made the following changes
 1. Added "use strict"
 2. Changed document.querySelectorAll(".randomPizzaContainer") to document.getElementsByClassName(".randomPizzaContainer") for better performance
