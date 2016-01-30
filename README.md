@@ -13,11 +13,21 @@ All my updates for both parts are in the dist folder. I followed the instruction
 #### main.js updates
 1. Removed the determineDX function as suggested by Cameron in the videos and added return values to the changeSliderLabel function. The return values are now assigned to a new variable which is then used to set the new width.
 2. Replaced the "document.querySelectorAll" selector with a better approach based on suggestions provided in the <a href="https://discussions.udacity.com/t/project-4-how-do-i-optimize-the-background-pizzas-for-loop/36302"> forums by the mentor mcs </a>
-3. In the updatePositions functoin, created an array called phaseArray for the 5 constand phase values and moved it outside the for loop
-4. Reduced the pizza count from 200 to based on clientHeight (trying to make the pizza display count dynamic) 
+3. In the updatePositions function, created an array called phaseArray for the 5 constand phase values and moved it outside the for loop
+4. Reduced the pizza count from 200 to based on clientHeight (trying to make the pizza display count dynamic)
+#### Based on Review Feedback, made the following changes
+1. Added "use strict"
+2. Changed document.querySelectorAll(".randomPizzaContainer") to document.getElementsByClassName(".randomPizzaContainer") for better performance
+3. Moved the length calculation rPizzas.length outside the for loop
+4. Moved defining pizzasDiv outside the for loop
+5. var elem is now defined outside the for loop
+6. changed document.querySelector("#movingPizzas1") to document.getElementById('movingPizzas1') and moved it outside the for loop.
 
 #### style.css changes
 1. Added will-change: transform; to the .mover class so that on scrolling the pizzas are not green
+2. Based on review feedback, added the following:
+	-webkit-transform: translateZ(0);
+  	-webkit-backface-visibility: hidden;
 
 
 ## Website Performance Optimization portfolio project

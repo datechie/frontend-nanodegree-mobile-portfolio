@@ -34,6 +34,9 @@ form {
   width: 256px;
   z-index: -1;
   will-change: transform; /* added this line so that there are no greens on the pizzas on scrolling */
+  /* Adding the below two properties based on review feedback */
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
 }
 
 .randomPizzaContainer {

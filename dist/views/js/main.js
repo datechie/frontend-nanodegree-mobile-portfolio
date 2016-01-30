@@ -16,6 +16,9 @@ Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
 */
 
+// Review Feedback 1 - use strict
+"use strict";
+
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
@@ -459,8 +462,12 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    var rPizzas = document.querySelectorAll(".randomPizzaContainer");
-    for (var i = 0; i < rPizzas.length; i++) {
+    // Review Feedback 2 - Changing the class selector based on review feedback (should have done it earlier :(..)
+    //var rPizzas = document.querySelectorAll(".randomPizzaContainer");
+    var rPizzas = document.getElementsByClassName(".randomPizzaContainer");
+    // Review Feedback 3 - calcualte array length outside of the for loop
+    var lenPizzas = rPizzas.length;
+    for (var i = 0; i < lenPizzas; i++) {
       //var dx = determineDx(rPizzas[i], size); // Not required since the function is removed
       //var newwidth = (rPizzas[i].offsetWidth + dx) + 'px'; // Commenting out the original code
       //var newWidth = changeSliderLabel(size); // This degrades performance a bit
@@ -480,8 +487,10 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+// Review Feedback 4 - Move the pizzasDiv definition outside the loop
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
+  //var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -517,7 +526,7 @@ function updatePositions() {
   var dbTop = document.body.scrollTop / 1250;
 
   // Creating a phase Array for the 5 constant values that are being used in the for loop below
-  phaseArray = [];
+  var phaseArray = [];
   for (var i = 0; i < 5; i++) {
       phaseArray[i] =  100 * (Math.sin(dbTop + i));
   }
@@ -561,15 +570,22 @@ document.addEventListener('DOMContentLoaded', function() {
   //console.log("Multiplier is ", multiplier);
   var pizzaCount = multiplier * cols;
 
+// Review Feedback 5 - Moving the var elem definition outside the for loop
+var elem;
+// Review Feedback 6 - Improving the performance of the less performance document.querySelector web API call
+// Removing the # before #movingPizzas1 as well
+var movingPizzas = document.getElementById('movingPizzas1');
   for (var i = 0; i < pizzaCount; i++) {
-    var elem = document.createElement('img');
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    // Review Feedback 6 - Changing the document.querySelector call to the more performant getElementById
+    //document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzas.appendChild(elem);
   }
   updatePositions();
 });
